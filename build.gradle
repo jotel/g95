@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-dependencies:1.5.8.RELEASE'
+
+    implementation 'com.google.code.gson:gson', { transitive = true }
+    implementation 'dom4j:dom4j', { transitive = true }
+}
+
+
+task showClasspath {
+  doLast {
+    sourceSets.main.compileClasspath.each {
+      println "==> $it.name"
+    }
+  }
+}
